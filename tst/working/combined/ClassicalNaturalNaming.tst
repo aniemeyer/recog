@@ -12,7 +12,7 @@ true
 gap> d:=3;; for q in [2, 3] do TestNaming("SL", d, q); od;
 #@fi
 #@if not IsBound(RECOG_TEST_SUITE) or RECOG_TEST_SUITE = "slow"
-gap> d:=3;; for q in [4, 5, 7, 8, 9, 11, 13] do TestNaming("SL", d, q); od;
+gap> d:=3;; for q in [4, 5, 7, 8, 9, 11, 13, 31, 127, 8191] do TestNaming("SL", d, q); od;
 gap> d:=4;; for q in [2, 3, 4, 5, 7, 8, 9, 11, 13] do TestNaming("SL", d, q); od;
 gap> d:=5;; for q in [2, 3, 4, 5, 7, 8, 9, 11, 13] do TestNaming("SL", d, q); od;
 #@fi

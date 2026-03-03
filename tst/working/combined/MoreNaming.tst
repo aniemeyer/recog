@@ -937,3 +937,8 @@ gap> ri.isNotPSL;
 true
 gap> ri.isSLContained;
 "unknown"
+
+
+#############################################################################
+##
+## Non generic tests.

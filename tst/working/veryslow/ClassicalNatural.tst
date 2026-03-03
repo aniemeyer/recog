@@ -1,6 +1,36 @@
 #
 gap> TestRecogGL := function(d,q)
->     local h, gens, g, ri, r, stamp;
+>     local h, gens, g, ri, r, stamp, fld;
+>     # 2.A7
+>    fld := GF(29);
+>    gens := [ [[  0, 1, 0, 0 ],
+>               [ -1, -1, 0, 0 ],
+>               [  0, 0, 0, 1 ],
+>               [  0, 0, -1, -1 ]] * One(fld);
+>        One(fld)*[[  0, 1, 0, 0 ],
+>               [  0, 0, 1, 0 ],
+>               [  0, 21, -1, -1 ],
+>               [  1, 1, -7, 0  ]]];
+>    g := Group(gens); # should have size 5040
+
+F := GF(43);
+
+A :=One(F)*[ [
+>   0, 1, 0, 0],
+>  [ 42,42,0, 0],
+>  [ 0, 0, 0, 1],
+>  [ 0, 0,42,42]
+> ];
+gap> B := One(F) * [[
+> 0,1,0,0],
+>  [ 0,0,1,0],
+>  [ 0,24,42,42],
+>   [1,1,25,0]];
+
+gap> G := Group(A,B);
+<matrix group with 2 generators>
+gap> Size(G);
+5040
 >     h := GL(d,q);
 >     gens := List([1..10],x->PseudoRandom(h));
 >     # FIXME: while this is a generating set with HIGH PROBABILITY, it is not always one.
