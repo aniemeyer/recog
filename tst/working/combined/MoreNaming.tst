@@ -796,7 +796,7 @@ gap> ri.isNotPSL;
 true
 
 # PSL(2,11) 5a over GF(5)
-# This group is over q=5 and not possible as 
+# This group is over q=5 and not possible  exception
 gap> grp := Group(
 >   [ 
 >     [ [ 0*Z(5), Z(5)^0, 0*Z(5), 0*Z(5), 0*Z(5) ], 
@@ -816,7 +816,7 @@ gap> ri.isNotPSL;
 true
 
 # PSL(2,11) 5b over GF(5)
-# This group is over q=5 and not possible as 
+# This group is over q=5 and not possible exception
 gap> grp := Group(
 >   [ 
 >     [ [ 0*Z(5), Z(5)^0, 0*Z(5), 0*Z(5), 0*Z(5) ], 
@@ -836,7 +836,7 @@ gap> ri.isNotPSL;
 true
 
 # PSL(2,11) 5a over GF(11)
-# This group is over q=11 and not possible as 
+# This group is over q=11 and not possible  exception
 gap> grp := Group(
 >   [ 
 >     [ [ 0*Z(11), Z(11)^0, 0*Z(11), 0*Z(11), 0*Z(11) ], 
@@ -934,6 +934,59 @@ gap> grp := Group(
 gap> ri := RecogniseClassical(grp);;
 gap> ri.isNotPSL;
 true
+gap> ri.isSLContained;
+"unknown"
+
+# PSL(2,7)  in dimension 3 over GF(11)
+# found this by searching elements a,b in GL(3,11) satisfying the
+# presentation a^2, b^3, (a*b)^7, [a,b]^4 as listed on Atlas Website.
+# here p = 11 and group has order 168
+# Note q=11 = 3.2^2 -1. 
+gap> grp := Group(
+> [ 
+>   [ [ Z(11), Z(11)^8, Z(11)^8 ], [ Z(11)^3, Z(11)^7, Z(11)^3 ], 
+>      [ Z(11), Z(11), Z(11)^0 ] ], 
+>  [ [ Z(11)^3, Z(11)^7, Z(11)^5 ], [ Z(11)^4, Z(11)^2, Z(11)^2 ], 
+>      [ Z(11)^8, Z(11)^3, Z(11)^5 ] ] ]);;
+gap> ri := RecogniseClassical(grp);;
+gap> ri.isNotPSL;
+"unknown"
+gap> ri.isSLContained;
+"unknown"
+gap> "PSL(2,7)" in ri.possibleNearlySimple;
+true
+
+# PSL(2,7)  in dimension 3 over GF(23)
+# found this by searching elements a,b in GL(3,23) satisfying the
+# presentation a^2, b^3, (a*b)^7, [a,b]^4 as listed on Atlas Website.
+# here p = 23 and group has order 168
+# Note q=23 = 3.2^3 -1.
+gap> grp := Group(
+> [ [ [ Z(23)^19, Z(23)^12, Z(23)^21 ], [ Z(23)^16, 0*Z(23), Z(23)^9 ], 
+>      [ Z(23)^15, Z(23)^21, Z(23)^17 ] ], 
+>  [ [ Z(23)^2, Z(23)^16, Z(23)^5 ], [ Z(23)^6, Z(23)^18, Z(23)^7 ], 
+>      [ Z(23)^13, Z(23)^18, Z(23)^17 ] ] ]);;
+gap> ri := RecogniseClassical(grp);;
+gap> ri.isNotPSL;
+"unknown"
+gap> ri.isSLContained;
+"unknown"
+gap> "PSL(2,7)" in ri.possibleNearlySimple;
+true
+
+# PSL(2,7)  in dimension 3 over GF(29)
+# found this by searching elements a,b in GL(3,29) satisfying the
+# presentation a^2, b^3, (a*b)^7, [a,b]^4 as listed on Atlas Website.
+# here p = 23 and group has order 168
+# Note q=28 <> 3.2^s -1. 
+gap> grp := Group(
+> [ [ [ Z(29)^2, 0*Z(29), Z(29)^13 ], [ Z(29)^11, Z(29)^14, Z(29)^2 ], 
+>       [ Z(29)^0, 0*Z(29), Z(29)^16 ] ], 
+>   [ [ Z(29)^9, Z(29)^5, Z(29)^3 ], [ Z(29)^7, Z(29)^19, Z(29)^10 ], 
+>      [ Z(29)^16, Z(29)^19, Z(29)^18 ] ] ]);;
+gap> ri := RecogniseClassical(grp);;
+gap> ri.isNotPSL;
+"unknown"
 gap> ri.isSLContained;
 "unknown"
 

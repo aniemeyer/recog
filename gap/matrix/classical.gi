@@ -590,10 +590,9 @@ function (recognise, grp)
 
    if d = 3 then
        # q = 3*2^s-1 and q^2-1 has no large ppd.
-       # TODO recheck this
        if (q = 2 or ((q+1) mod 3 = 0 and IsPowerOfTwo((q+1)/3))) then
             ord := Order(recognise.g);
-            if (ord mod 8 <> 0 or (p^(2*a)-1) mod ord = 0) then
+            if ( (q^2-1) mod ord = 0 and  ord mod 8 = 0 ) then
                 Info( InfoClassical, 2, "G' not PSL(2,7);");
                 recognise.isNotPSL := true;
                 return NeverApplicable;
