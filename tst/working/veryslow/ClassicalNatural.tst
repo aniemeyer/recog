@@ -47,6 +47,8 @@ gap> Size(G);
 >     Print("Stamp: ",stamp,"\n");
 >     return ri;
 > end;;
+gap> ReadPackage("recog", "tst/utils.g");
+true
 
 #
 gap> TestRecogGL(2,2);;

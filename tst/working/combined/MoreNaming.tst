@@ -1,7 +1,7 @@
 #
 # This file contains additional tests for the naming (= non-constructive
 # recognition) algorithms implemented in the RecogniseClassical function,
-# focused on testing exceptions. 
+# focused on testing exceptions.
 #
 
 # Read some helper functions
@@ -43,7 +43,7 @@ true
 #
 # Group A7 Source: Atlas Matrix representation of dim 4a over GF(2)
 # ppd(4,2;e_i)-elements for e1=3, e2=4, p=2, but |A7| <> |SL(4,2)|
-# 
+#
 gap>  grp := Group( [ [[0,1,0,0],
 >                      [1,1,0,0],
 >                      [0,0,0,1],
@@ -209,7 +209,7 @@ true
 #
 # Group M24. Source ATLAS: Matrix representation of dim 11b over GF(2)
 # ppd(11,2;e_i)-elements for e1=10, e2=11, p=2, but not ppd(11,2;e): 5<e<10
-# 
+#
 gap> grp := Group( [  [
 >                       [0,1,0,0,0,0,0,0,0,0,0],
 >                       [1,0,0,0,0,0,0,0,0,0,0],
@@ -241,7 +241,7 @@ true
 # Now come groups of type PSL(2,r)
 # These groups have ppd(d,q;e_i) elements for e2=e1+1 and are listed in
 # where e2=1/2(r-1).
-# Tables 3, 14 of [NP98]. 
+# Tables 3, 14 of [NP98].
 #
 
 # PSL(2,23) gens := AtlasGenerators("L2(23)", 2); 11a
@@ -291,8 +291,7 @@ gap> grp := Group(
 >         Z(2)^0, Z(2)^0, Z(2)^0 ], 
 >     [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2)^0, Z(2)^0, Z(2)^0, Z(2)^0, 
 >         0*Z(2), 0*Z(2), Z(2)^0 ] ] ]);;
-gap> ri := RecogniseClassical(grp);;
-gap> "PSL(2,23)" in ri.possibleNearlySimple;
+gap> Number([1..100], i -> "PSL(2,23)" in RecogniseClassical(grp).possibleNearlySimple) >= 90;
 true
 
 # PSL(2,23) gens := AtlasGenerators("L2(23)", 2); 11a
