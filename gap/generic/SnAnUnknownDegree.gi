@@ -1307,12 +1307,14 @@ function(ri)
         else
             Setslpforelement(ri, SLPforElementFuncsGeneric.SnUnknownDegree);
         fi;
+        SetStdPresentation(ri, RECOG.SnPresentation(degree));
     else
         if degree < 11 then
             Setslpforelement(ri, SLPforElementFuncsGeneric.AnSmallDegree);
         else
             Setslpforelement(ri, SLPforElementFuncsGeneric.AnUnknownDegree);
         fi;
+        SetStdPresentation(ri, RECOG.AnPresentation(degree));
     fi;
     return Success;
 end);
